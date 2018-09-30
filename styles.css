@@ -1,0 +1,54 @@
+/*
+font-family: 'Open Sans', sans-serif;
+font-size: 18px;
+hexadecimal colors for gray to style wireframes
+gray94	#F0F0F0 (light)
+gray61	#9C9C9C (medium)
+gray25	#404040 (dark)
+light black  #3333
+black   #000000
+*/
+
+/*
+
+Responsive First 
+
+use `min-width media queries see Andrea Bailey's Responsive Example for Media Query https://github.com/andreacardybailey/responsive_example
+
+*/
+
+* {
+    
+    box-sizing: border-box;
+
+}
+
+/*header {
+    
+    border: 1px solid black;   
+}
+
+*/
+
+.start-section {
+    
+    padding:20px;
+    padding-top:20px;
+    max-width:400px;
+}
+
+
+.quiz-section {
+    display: none;
+}
+/*
+.result-section {
+    display: none;
+}
+*/
+#quizChoices {
+    padding: 20px;
+    padding-top: 20px;
+    border: 1px solid red;
+    max-width: 400px;
+}
