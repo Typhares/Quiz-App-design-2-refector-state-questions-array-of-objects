@@ -1,10 +1,11 @@
 'use strict'
-/** 10:30 left off, line 67 not accessing correct index or value in the radio button to append questions
-the first function works in JSFiddle but not in Brackets
 
 /** 
-   * Refactor the 'document.ready' event listener into `$(init)` function`
-   * revisit unit 3 architecting client-side apps there are some subtlies there
+   * Debugging: use the console and console.logs()
+   *JQuery: copy selectors into console; if selector has a length of 1 it is not empty
+   *JS Functions: call the function 'showQuestion() in the console; if prints undefined it is working
+   *HTML: elements tab, hover over what's not working;  look at classes, ids 
+   *CSS: elements tab, hover over attributes; look at CSS; I had styled the "quiz-section" class display:none
    * look at the requirements: core functionality for Quiz App is create the object, get the data on the screen, submit button, go to next question [i++]
    */
 /** MVP
@@ -56,8 +57,8 @@ let totalNumberOfCorrectAnswers = 0;
 //generate the question form
 function showTheQuestion() {
     // update questionTitle text
-  $('#question').text(questionsArray[currentQuestionNumber].questionTitle);
-    //hide existing radion button choices'<div id=choices>'
+    $('#question').text(questionsArray[currentQuestionNumber].questionTitle);
+    //hide existing radio button choices'<div id=choices>'
     $('#choices').empty();
 
     let totalNumberOfChoices= questionsArray[currentQuestionNumber].questionChoices.length;
@@ -66,9 +67,11 @@ function showTheQuestion() {
 
     for (var i=0; i<totalNumberOfChoices; i++) {
     // let buildEachButtonChoiceHTML = `<input type='radio' class='option' name='option' value='${i}'> ${questionsArray[currentQuestionNumber].questionChoices[i]}`;
+        
     let buildEachChoiceHTML =`<input type='radio' class='option' name='option' value='${i}'> ${questionsArray[currentQuestionNumber].questionChoices[i]}`;
     $('#choices').append(buildEachChoiceHTML);
     }
+    
     // displays the number of the current question
     $('#questionNumberDisplay').text("Question" + (currentQuestionNumber + 1) + " of " + totalNumberOfQuestions);
 
@@ -77,17 +80,24 @@ function showTheQuestion() {
 
 /*--- Step 3 - Using functions ---*/
 
+function renderQuestion() {
+    console.log('hello world!');
+}
+
+function nextQuestion() {
+//    console.log('hello world!');
+}
 
 function init() {
-    //to run ShowTheQuestion, must invoke it here
     showTheQuestion();
-    /console.log('hello world!');
+//    console.log('hello world!');
     renderQuestion();
     nextQuestion();
 }
 
 
 $(init);
+
 
 
 
@@ -99,6 +109,15 @@ $(init);
   *the page has already been read, the functions get hoistsed, define before and call them after. 
   *$(callBackFunction) replaces document.Ready()
   *${donkey} doesn't matter what you call it
+  *${Dom ready} 
+  
+  
+function init() {
+    
+handleThumnailClicks(); 
+doSomething(); 
+
+}
 
 */
 

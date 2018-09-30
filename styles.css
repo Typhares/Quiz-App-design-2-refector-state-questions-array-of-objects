@@ -23,12 +23,6 @@ use `min-width media queries see Andrea Bailey's Responsive Example for Media Qu
 
 }
 
-/*header {
-    
-    border: 1px solid black;   
-}
-
-*/
 
 .start-section {
     
@@ -38,15 +32,8 @@ use `min-width media queries see Andrea Bailey's Responsive Example for Media Qu
 }
 
 
-.quiz-section {
-    display: none;
-}
-/*
-.result-section {
-    display: none;
-}
-*/
 #quizChoices {
+    
     padding: 20px;
     padding-top: 20px;
     border: 1px solid red;
