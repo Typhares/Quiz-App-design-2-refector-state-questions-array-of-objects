@@ -17,10 +17,14 @@ use `min-width media queries see Andrea Bailey's Responsive Example for Media Qu
 
 */
 
-* {
-    
-    box-sizing: border-box;
 
+* {
+        box-sizing: border-box;  
+
+}
+
+.quiz-section {
+    display: block;
 }
 
 
@@ -34,8 +38,5 @@ use `min-width media queries see Andrea Bailey's Responsive Example for Media Qu
 
 #quizChoices {
     
-    padding: 20px;
-    padding-top: 20px;
-    border: 1px solid red;
-    max-width: 400px;
+
 }

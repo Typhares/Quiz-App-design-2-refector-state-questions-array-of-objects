@@ -1,55 +1,70 @@
-<!--this console log error $ means that JQuery is not linked to HTML -->
-<!--this console log error $ means that JQuery is not linked to HTML -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css">
-    <!--  link a decent Font -->
 </head>
-
+<!--**FORMS Leder and input
+        *refactor section class="start-section" HTML, 
+        *selector id
+        *add a Submit button to the quiz-wrapper div id 
+        *what is the difference between organizing by divs or semantic HTML structure
+        *is it a requirement to display style the radio buttons vertically?
+        *explain my mentors quiz example; what JQuery event handler is lining radio buttons vertically
+        *more basic example I can look at? 
+-->
 <body>
-    <header class="banner-section">
-          <h1>That Mona Lisa Quiz</h1>
-    </header> 
-<!--   start page-->
+<!--   start page
+      *refactor line 25 + 26 wrap button element in a FORM 
+      *in-line style="display: none;" bc it should never be viewable to anyone except my index.JS-->  
     <section class="start-section">
-        <h2><em>This is the page where you start the quiz.</em></h2>
+        <h1><em>That Mona Lisa Quiz</em></h1>
         <p>Urban legends, heresay or art historical fact? This app tests how much you know about that famous painting <em> The Mona Lisa</em>!</p>
-       <button class="start-button" id="startButtonQuiz">Start</button>
+        <button class="start-button" id="startButtonQuiz">Start</button>
     </section>
 
-<!-- Step 2 Quiz Section -->
+<!-- Step 2 Quiz Section 
+    *refactor line 31 and wrap section in a div? is that cleaner code? -->
+
     <section class="quiz-section"> 
-      <div id="questions-wrapper">
-          <h1 class="text" id="question">"Question 1?"</h1>
-            <div id="choices">
-<!--              refactor <br>-->
-               <input  type="radio" value="0" name="option" class="option"><br>
-                <input type="radio" value="1" name="option" class="option"><br>
-                <input type="radio" value="2" name="option" class="option"><br>
-                <input type="radio" value="3" name="option" class="option"><br>
-            </div>
+    <!--  refactor as a FORM with a submit button -->  
+        <div id="questions-wrapper"> 
+    <!--       replace H1 with leader -->
+            <h1 class="text" id="question">"Question 1?"</h1>
+            <!--  action is the server endpoint     method is "get" or "post" -->
+            <form> 
+                <fieldset name="questions-choices" id="choices">
+<!--               <fieldset name="questions-choices">-->
+                    <legend id="question">"How many people visit The Mona Lisa each year?"</legend>
+                        <input id="1" type="radio" value="0" name="option" class="option" required>
+                        <label for="1">choice 1</label>
+                        <input id="2" type="radio" value="1" name="option" class="option" required>
+                        <label for="2">choice 2</label>
+                        <input id="3" type="radio" value="2" name="option" class="option" required>
+                        <label for="3">choice 3</label>
+                        <input id="4" type="radio" value="3" name="option" class="option" required>
+                        <label for="4">choice 4</label>
+                </fieldset>
+                <button type="submit">Submit</button>
+                <button type="reset">Restart Quiz</button>
+            </form>
         </div>
-    <!-- Step 2b Pagination -->   
-    <div class="question-number" id="questionNumberDisplay">Question 1 of 10
-    </div>     
-    </section>
-    
+    </section>    
+
+    <!-- I commented out id="questionNumberDisplay"> -->
+    <section class="answer-feedback-page" style="display: none;">
+
+            <button class="go-next">Go to Next</button>
 <!-- Step 3 Result Section -->
- 
-    <section class="result-section"> 
-        <h2 class="text"> Your Final Score </h2>    
+        <h2 class="text"> Your Final Score is</h2>    
         <button class="start-button" id="restartQuiz">Restart</button>
- </div>
 <!--goes at the bottom because of order of execution-->
-
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-<!--JS script is now linked at the bottom so pages load faster rather than running JS first -->
-<script type="text/javascript" src="index.js"></script>
-
+ </section>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <!--JS script is now linked at the bottom so pages load faster rather than running JS first -->
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
