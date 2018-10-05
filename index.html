@@ -1,3 +1,4 @@
+<!--I updated Forms to include accessibilty features-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,65 +7,60 @@
     <meta name="viewport" content="width=device-width">
     <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css">
+    
 </head>
-<!--**FORMS Leder and input
-        *refactor section class="start-section" HTML, 
-        *selector id
-        *add a Submit button to the quiz-wrapper div id 
-        *what is the difference between organizing by divs or semantic HTML structure
-        *is it a requirement to display style the radio buttons vertically?
-        *explain my mentors quiz example; what JQuery event handler is lining radio buttons vertically
-        *more basic example I can look at? 
--->
 <body>
-<!--   start page
-      *refactor line 25 + 26 wrap button element in a FORM 
-      *in-line style="display: none;" bc it should never be viewable to anyone except my index.JS-->  
-    <section class="start-section">
-        <h1><em>That Mona Lisa Quiz</em></h1>
-        <p>Urban legends, heresay or art historical fact? This app tests how much you know about that famous painting <em> The Mona Lisa</em>!</p>
-        <button class="start-button" id="startButtonQuiz">Start</button>
-    </section>
+<!--   *in-line style="display: none;" bc it should never be viewable to anyone except my index.JS-->  
+<section class="start-section" style="display: block;">
+     <h1>That Mona Lisa Quiz</h1>
+     <p>Urban legend, heresay or art historical fact? This app tests how much you know about that famous painting <em> The Mona Lisa</em>!</p>
+     <button class="start-button" id="startButtonQuiz">Start</button>
+</section>
 
-<!-- Step 2 Quiz Section 
-    *refactor line 31 and wrap section in a div? is that cleaner code? -->
+<!-- Step 2 Quiz Section --->
 
-    <section class="quiz-section"> 
-    <!--  refactor as a FORM with a submit button -->  
-        <div id="questions-wrapper"> 
-    <!--       replace H1 with leader -->
-            <h1 class="text" id="question">"Question 1?"</h1>
-            <!--  action is the server endpoint     method is "get" or "post" -->
-            <form> 
-                <fieldset name="questions-choices" id="choices">
-<!--               <fieldset name="questions-choices">-->
-                    <legend id="question">"How many people visit The Mona Lisa each year?"</legend>
-                        <input id="1" type="radio" value="0" name="option" class="option" required>
-                        <label for="1">choice 1</label>
-                        <input id="2" type="radio" value="1" name="option" class="option" required>
-                        <label for="2">choice 2</label>
-                        <input id="3" type="radio" value="2" name="option" class="option" required>
-                        <label for="3">choice 3</label>
-                        <input id="4" type="radio" value="3" name="option" class="option" required>
-                        <label for="4">choice 4</label>
-                </fieldset>
-                <button type="submit">Submit</button>
-                <button type="reset">Restart Quiz</button>
-            </form>
+<section class="quiz-section">      
+    <div id="questions-wrapper">
+    <div class="question-number" id="questionNumberDisplay">Question 1 of + '/' 10 </div>
+        <h1 class="text" id="question">"Question 1?"</h1>
+        
+    <form class="questions" action="#">
+        <fieldset name="questions-choices" id="choices">
+            <legend>"How many people visit The Mona Lisa each year?"</legend>
+            <div class="options">
+                <label> <input value="one" class="possibleChoice" name='option' type="radio" required > One </label>  
+            </div>
+            <div class="options">
+                 <label> <input value="two" class="possibleChoice" name='option' type="radio" required > Two </label>  
+            </div>
+             <div class="options">
+                 <label> <input value="three" class="possibleChoice" name='option' type="radio" required> Three </label> 
+            </div>
+            <div class="options">
+                 <label> <input value="four" class="possibleChoice" name='option' type="radio" required> Four </label>  
+            </div>
+            <div class="options">
+                 <label> <input value="five" class="possibleChoice" name='option' type="radio" required>Five</label>  
+            </div>
+            <button class="submit-button" type="submit">Submit </button>
+            <button class="reset-button" type="reset">Restart Quiz</button>
+          </fieldset>
+        </form>
+    
+<!-- Step 3 Result Section -->                                                                                                        
+<section class="correct-details-section" style="display: none;">
+        <div class="correct-details-container">
+        <h1 class="text">Wrong</h1> 
         </div>
-    </section>    
-
-    <!-- I commented out id="questionNumberDisplay"> -->
-    <section class="answer-feedback-page" style="display: none;">
-
-            <button class="go-next">Go to Next</button>
-<!-- Step 3 Result Section -->
-        <h2 class="text"> Your Final Score is</h2>    
+        <h2 class="text"> Your Final Score is</h2> 
+        <button class="next">Next</button>     
         <button class="start-button" id="restartQuiz">Restart</button>
 <!--goes at the bottom because of order of execution-->
- </section>
+</section>
+    
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
     <!--JS script is now linked at the bottom so pages load faster rather than running JS first -->
     <script type="text/javascript" src="index.js"></script>
+    
 </body>
 </html>

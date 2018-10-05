@@ -1,0 +1,54 @@
+<!--this console log error $ means that JQuery is not linked to HTML -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--  link a decent Font -->
+</head>
+
+<body>
+<!--   container w red border-->
+    <header class="banner-section">
+          <h1>That Mona Lisa Quiz</h1>
+    <!-- add a header and h1 class to link to an image and style>-->
+    </header> 
+<!--   start page-->
+    <section class="start-section">
+        <h2><em>This is the page where you start the quiz.</em></h2>
+        <p>Urban legends, heresay or art historical fact? This app tests how much you know about that famous painting <em> The Mona Lisa</em>!</p>
+        <button class="start-button" id="startButtonQuiz">Start</button>
+    </section>
+
+<!-- Step 2 A Quiz Section -->
+    <section class="quiz-section"> 
+      <div id="questions-wrapper">
+          <h1 class="text" id="question">"Question 1?"</h1>
+            <div id="quizChoices">
+               <input  type="radio" value="0" name="option" class="option"><br>
+                <input type="radio" value="1" name="option" class="option"><br>
+                <input type="radio" value="2" name="option" class="option"><br>
+                <input type="radio" value="3" name="option" class="option"><br>
+            </div>
+        </div>
+    <!-- Step 2b Pagination -->   
+        <div class="question-number" id="questionNumberDisplay">Question 1 of 10</div>     
+    </section>
+    
+<!-- Step 3 Result Section -->
+ 
+    <section class="result-section"> 
+        <h2 class="text"> Your Final Score </h2>    
+        <button class="start-button" id="restartQuiz">Restart</button>
+ </div>
+<!--goes at the bottom because of order of execution-->
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+<!--JS script is now linked at the bottom so pages load faster rather than running JS first -->
+<script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
