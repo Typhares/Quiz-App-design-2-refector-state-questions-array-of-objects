@@ -1,13 +1,12 @@
 "use strict";
- /** Questions for Mentor
-    *Googling how to select and apply methods and coming upon the depricated solutions which has been confusing me
-   */
+ /**  https://simplestepscode.com/javascript-quiz-tutorial/ */
  /** MVP
       * get data rendered on the screen
       * submit 
       * go to next question for loop increment i++
       * this approach is the traditiional JQuery way but it uses alot of DOM resources,
       *returning the array or object is more efficient and it works better with REACT
+      *Thinkful prefers the 
    */
 
 /**
@@ -31,21 +30,21 @@ const questionsArray = [
     { 
         questionTitle: "Question 2",
         questionChoices: [ '10 million', '15 million', '20 million', 'not insured' ],
-        questionCorrectChoice: 3, 
+        questionCorrectChoice: 1, 
         correctDetails: "10 million is the answer, but it's not really alot of money." 
     }, 
     
     { 
         questionTitle: "Question 3",
         questionChoices: [ '260 million', '25 million', '1 billion', 'not known' ],
-        questionCorrectChoice: 0, 
+        questionCorrectChoice: 4, 
         correctDetails: "It is not known." 
     }, 
 
     { 
         questionTitle: "Question 4",
         questionChoices: [ 'Francois I', 'Pope Paul III', 'Marie Antoinette', 'Leonardo da Vinci' ],
-        questionCorrectChoice: 3,
+        questionCorrectChoice: 2,
         correctDetails: "Placeholder string number one." 
     }, 
 
@@ -55,14 +54,36 @@ const questionsArray = [
         questionCorrectChoice: 1,
         correctDetails: "Placeholder string number two."
     }, 
-/*--Questions 5-10 here  ---*/  
+    
+    { 
+        questionTitle: "Question 6",
+        questionChoices: [ 'Francois I', 'Pope Paul III', 'Marie Antoinette', 'Leonardo da Vinci' ],
+        questionCorrectChoice: 3,
+        correctDetails: "Placeholder string number three."
+    }, 
+    
+        { 
+        questionTitle: "Question 7",
+        questionChoices: [ 'Francois I', 'Pope Paul III', 'Marie Antoinette', 'Leonardo da Vinci' ],
+        questionCorrectChoice: 5,
+        correctDetails: "Placeholder string number four."
+    }, 
+    
+    { 
+        questionTitle: "Question 8",
+        questionChoices: [ 'Francois I', 'Pope Paul III', 'Marie Antoinette', 'Leonardo da Vinci' ],
+        questionCorrectChoice: 4,
+        correctDetails: "Placeholder string number five."
+    }, 
+/*--Questions 9-10 here  ---*/  
 ];
 
 let currentQuestionNumber = 0; 
 let totalNumberOfQuestions = questionsArray.length;
 let correctQuestionCounter = 0; 
 
-/* -----------2 Retrieve the answers */
+/* --Gets the data on the screen  */
+
 function showTheQuestion() { 
     let totalNumberOfChoices = questionsArray[currentQuestionNumber].questionChoices.length;
     $('#question').text(questionsArray[currentQuestionNumber].questionTitle);
@@ -70,7 +91,7 @@ function showTheQuestion() {
   
     //loop through questionChoices and dynamically generate a row for each of them '<div id=choices>'
     
-    for (var i=0; i<totalNumberOfChoices; i++) {
+    for (var i=0; i < totalNumberOfChoices; i++) {
         let buildEachChoiceHTML = `
             <div class="options">
                 <label> 
@@ -80,33 +101,57 @@ function showTheQuestion() {
         $('#choices').append(buildEachChoiceHTML);
     }
     
-    $('#questionNumberDisplay').text(`Question ${currentQuestionNumber + 1} out of ${totalNumberOfQuestions}`);
+    $('#questionNumberDisplay').text(`Question ${currentQuestionNumber + 1 + '/'} ${totalNumberOfQuestions}`);
+
+    handleSubmit();
 }
 
-/*-- validate the form --*/
-/*-- go to next --*/
-/*-- rinse and repeat go to next question bank  --*/
+/*-- write functions that run very narrow programs
+/*-- 1.validate the form --*/
+/*-- 2.retrieve user answer or checked --*/
+/*-- 3.display--*/
+/*-- 4.go to next --*/
+/*-- be careful of closing brackets and indentation: everything inside a block (curlys braces) indent the code w/in one tab space--*/
 
-function handleSubmitButtons() {
-    $('.submit-button').click(function(event) {
-    event.preventDefault();
-    //retrieve the User's choice; 
-    if (selectedOption == true ) {
-        let selectedOption = $('input[name="option"]:checked').val();
-        console.log("validate the user selection");
-    }
-    let correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
-    });
+function handleSubmit() {
+    $('.questions').submit(function(event) {
+        console.log("hello is it working?")
+        event.preventDefault();
+     let correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
+        if ( $('input').is(':checked') ) {
+             //get the answer from the User by retrieving the value="one"
+            let selectedOption = $('input[name="option"]:checked').val();
+            // console.log("validate the user selection");
+            if ( selectedOption == correctAnswer ) {
+                correctQuestionCounter++;
+            //    console.log(correctQuestionCounter);
+
+            } else {
+                currentQuestionNumber++;
+                console.log("it is incrementing");
+              // show the next question
+             $('#question').text(questionsArray[currentQuestionNumber].questionTitle)
+            }
+        }
+    })
 }
 
-function nextQuestion() {
-    console.log('hello world!');
+/*-- display-*/
+function renderQuestion() {
+    console.log('render the question!');
+// $('answer-details-section').append( `<p>  questionsArray[currentQuestionNumber].questionText </p> )
+// continue to next question 
 }
 
-function nextQuestion() {
-    console.log('hello world!');
-}
+//renderFeedback (use a boolean data type)
+function renderFeedback() {
+    console.log('render the question!');
 
+}
+// double check this function name, it's not restaring the quiz set UpEventHandlers > not an action for restarting the Quiz. What is the .on('click', function)
+function restartQuiz () {
+//    $('reset-button').on('click', function(event) {});
+}
 
 function init() {
     $('.quiz-section').hide();
@@ -117,15 +162,15 @@ function init() {
     $('.quiz-section').show();
     $('.result-section').hide();
     $('.start-section').hide();
-        
+    
     });
     
     $('correct-details-container').empty();
-    console.log("hello does this work?");
+    console.log("correct details container");
 
     showTheQuestion();
-    console.log('hello world!');
-
+    console.log('showTheQuestion!');
+    
 }
 
 $(init)
