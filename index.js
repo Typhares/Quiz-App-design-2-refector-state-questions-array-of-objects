@@ -1,12 +1,12 @@
 "use strict";
  /**  https://simplestepscode.com/javascript-quiz-tutorial/ */
- /** MVP
-      * get data rendered on the screen
-      * submit 
-      * go to next question for loop increment i++
+ /**    startPage() * get first question data rendered on the screen
+        startQuiz() * submit User checked
+        nextQuestion() * go to next question for loop increment i++
+        getAnswer() 
+        restartQuiz()
       * this approach is the traditiional JQuery way but it uses alot of DOM resources,
       *returning the array or object is more efficient and it works better with REACT
-      *Thinkful prefers the 
    */
 
 /**
@@ -114,9 +114,10 @@ function showTheQuestion() {
 /*-- be careful of closing brackets and indentation: everything inside a block (curlys braces) indent the code w/in one tab space--*/
 
 function handleSubmit() {
-    $('.questions').submit(function(event) {
+    $('.questions').submit(function(event){
         console.log("hello is it working?")
         event.preventDefault();
+        
      let correctAnswer = questionsArray[currentQuestionNumber].questionCorrectChoice;
         if ( $('input').is(':checked') ) {
              //get the answer from the User by retrieving the value="one"
@@ -125,7 +126,6 @@ function handleSubmit() {
             if ( selectedOption == correctAnswer ) {
                 correctQuestionCounter++;
             //    console.log(correctQuestionCounter);
-
             } else {
                 currentQuestionNumber++;
                 console.log("it is incrementing");
@@ -134,24 +134,32 @@ function handleSubmit() {
             }
         }
     })
+    
+    restartQuiz();
+    console.log('restart the quiz');
 }
 
-/*-- display-*/
-function renderQuestion() {
-    console.log('render the question!');
-// $('answer-details-section').append( `<p>  questionsArray[currentQuestionNumber].questionText </p> )
-// continue to next question 
-}
+/*-- renderFeedback (use a boolean data type) --*/
 
-//renderFeedback (use a boolean data type)
 function renderFeedback() {
     console.log('render the question!');
 
 }
-// double check this function name, it's not restaring the quiz set UpEventHandlers > not an action for restarting the Quiz. What is the .on('click', function)
-function restartQuiz () {
-//    $('reset-button').on('click', function(event) {});
+
+/*-- double check this function name, it's not an action for restarting the Quiz. What is the .on('click', function) ---*/
+
+function nextQuestion () {
+    $('#next-button').text('click', function(event) {
+    
+    });
+    
 }
+function restartQuiz () {
+    $('.reset-button').on('click', function(event) {
+    $('.start-section').
+    });
+}
+
 
 function init() {
     $('.quiz-section').hide();
