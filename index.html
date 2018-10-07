@@ -10,8 +10,8 @@
     
 </head>
 <body>
-<!--   *in-line style="display: none;" bc it should never be viewable to anyone except my index.JS-->  
-<section class="start-section" style="display: block;">
+<!--  this is what the Curricula source code says: *in-line style="display: none;" bc it should never be viewable to anyone except my index.JS-->  
+<section class="start-section">
      <h1>That Mona Lisa Quiz</h1>
      <p>Urban legend, heresay or art historical fact? This app tests how much you know about that famous painting <em> The Mona Lisa</em>!</p>
      <button class="start-button" id="startButtonQuiz">Start</button>
@@ -28,6 +28,7 @@
         <fieldset name="questions-choices" id="choices">
             <legend>"How many people visit The Mona Lisa each year?"</legend>
             <div class="options">
+<!--you need the value attribute to use the submit button value="" -->
                 <label> <input value="one" class="possibleChoice" name='option' type="radio" required > One </label>  
             </div>
             <div class="options">
@@ -42,21 +43,30 @@
             <div class="options">
                  <label> <input value="five" class="possibleChoice" name='option' type="radio" required>Five</label>  
             </div>
-            <button class="submit-button" type="submit">Submit </button>
-            <button class="reset-button" type="reset">Restart Quiz</button>
           </fieldset>
-        </form>
-    
-<!-- Step 3 Result Section -->                                                                                                        
-<section class="correct-details-section" style="display: none;">
-        <div class="correct-details-container">
-        <h1 class="text">Wrong</h1> 
+        <button class="submit-button" type="submit"> Submit </button>
+        <button class="reset-button" type="reset" > Restart Quiz </button>
+    </form>
+
+<!-- Step 2 Answer Feedback and next question -->                                                                         
+
+<section class="answer-details-section" style="display: none;">
+        <div class="details-container">
+        <p class="dynamically-generate-text"></p>  
         </div>
         <h2 class="text"> Your Final Score is</h2> 
         <button class="next">Next</button>     
         <button class="start-button" id="restartQuiz">Restart</button>
-<!--goes at the bottom because of order of execution-->
-</section>
+</section>        
+<!-- Step 3 Final -->    
+
+<section class="correct-details-section" style="display: none;">
+    <div class="correct-details-container">
+    <h1 class="text">Wrong</h1> 
+    </div>
+    <h2 class="text"> Your Final Score is</h2> 
+    <button class="next">Next</button>     
+    <button class="start-button" id="restartQuiz">Restart</button>
     
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
     <!--JS script is now linked at the bottom so pages load faster rather than running JS first -->
